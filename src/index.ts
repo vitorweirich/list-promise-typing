@@ -1,10 +1,15 @@
-class ProductInfo {
-  public id: string;
+// class ProductInfo {
+//   public id: string;
 
-  constructor(id: string) {
-    this.id = id;
-  }
-}
+//   constructor(id: string) {
+//     this.id = id;
+//   }
+// }
+
+// pode ser um type ou interface ao invés de classes
+type ProductInfo = {
+  id: string;
+};
 
 class ProductStock {
   public name: string;
@@ -16,18 +21,19 @@ class ProductStock {
 
 async function getProductInfo(): Promise<ProductInfo> {
   return new Promise((resolve) => {
-    resolve(new ProductInfo("10"));
+    resolve({ id: "10" });
   });
 }
 
 async function getProductStock(): Promise<ProductInfo[]> {
   return new Promise((resolve) => {
-    resolve([new ProductInfo("10")]);
+    resolve([{ id: "10" }]);
   });
 }
 
 async function getProductCategory(): Promise<ProductStock> {
   return new Promise((resolve, reject) => {
+    // Comentar em caso de querer visualziar 100% de sucesso
     if (Math.random() * 10 > 5) {
       reject({ msg: "some error" });
     }
