@@ -41,7 +41,10 @@ async function getProductCategory(): Promise<ProductStock> {
   });
 }
 async function function4(): Promise<ProductStock[]> {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    if (Math.random() * 10 > 3) {
+      reject({ msg: "some error" });
+    }
     resolve([new ProductStock("name")]);
   });
 }
