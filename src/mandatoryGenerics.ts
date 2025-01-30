@@ -2,7 +2,7 @@ type ReplacePlaceholdersSubstitutions<T> = T extends {}
   ? keyof T extends never
     ?
         | never
-        | "There is no reason to directly invoke this function and commit substitutions field"
+        | "There is no reason to directly invoke this function and ommit substitutions field"
     : NoInfer<T>
   : NoInfer<T>;
 
